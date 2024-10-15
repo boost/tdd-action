@@ -48,7 +48,7 @@ const { google } = require('googleapis');
   }).format(closedAtUTC);
 
   // Format as dd-mm-YYYY (Intl.DateTimeFormat defaults to mm/dd/YYYY)
-  const [month, day, year] = closedAtNZT.split('/');
+  const [day,month, year] = closedAtNZT.split('/');
   const formattedClosedDate = day + '-' + month + '-' + year;
 
   // Store the response and feedback in Google Sheets

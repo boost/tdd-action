@@ -7,7 +7,5 @@ runs:
       uses: actions/github-script@v6
       with:
         script: |
-          const fs = require('fs');
-          const path = require('path');
-          const script = fs.readFileSync(path.join('${{ github.action_path }}', 'src', 'addTDDQuestion.js'), 'utf8');
-          eval(script);
+          const script = require('${{ github.action_path }}/src/addTDDQuestion.js');
+          await script({ github, context });
