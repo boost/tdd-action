@@ -1,0 +1,11 @@
+name: 'Add TDD Question'
+description: 'Add a TDD feedback question to newly opened pull requests'
+runs:
+  using: 'composite'
+  steps:
+    - name: Add TDD Question
+      uses: actions/github-script@v6
+      with:
+        script: |
+          const script = require('${{ github.action_path }}/src/addTDDQuestion.js');
+          await script({ github, context });
