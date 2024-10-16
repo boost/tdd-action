@@ -1,0 +1,15 @@
+name: 'Store TDD Data'
+description: 'Store TDD feedback data in Google Sheets'
+inputs:
+  github-token:
+    description: 'GitHub token'
+    required: true
+  sheet-id:
+    description: 'Google Sheets ID'
+    required: true
+  google-credentials:
+    description: 'Google Sheets credentials'
+    required: true
+runs:
+  using: 'node16'
+  main: 'action-store-tdd-data.js'
