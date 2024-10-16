@@ -3,6 +3,11 @@ description: 'Add a TDD feedback question to newly opened pull requests'
 runs:
   using: 'composite'
   steps:
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: "21"
+
     - name: Add TDD Question
       uses: actions/github-script@v6
       with:
