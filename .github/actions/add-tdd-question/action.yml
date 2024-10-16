@@ -1,0 +1,9 @@
+name: 'Add TDD Question'
+description: 'Add a TDD feedback question to a pull request'
+inputs:
+  github-token:
+    description: 'GitHub token'
+    required: true
+runs:
+  using: 'node16'
+  main: 'action-add-tdd-question.js'
