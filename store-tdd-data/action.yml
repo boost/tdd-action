@@ -12,7 +12,7 @@ runs:
       env:
         GITHUB_TOKEN: ${{ github.token }}
         GOOGLE_SHEETS_CREDENTIALS: ${{ secrets.GOOGLE_SHEETS_CREDENTIALS }}
-        SHEET_ID: '1JxCmHpwnhe8vxGVAXP_vWxhfbDJQ4gZcpdmwVHK0tsM'
+        TDD_SHEET_ID: ${{ secrets.TDD_SHEET_ID }}
         GITHUB_REPOSITORY: ${{ github.repository }}
         GITHUB_PR_NUMBER: ${{ github.event.pull_request.number }}
         GITHUB_CLOSED_AT: ${{ github.event.pull_request.closed_at }}
