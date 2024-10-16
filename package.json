@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "@actions/core": "^1.0.0",
-    "@actions/github": "^6.0.0"
+    "@actions/github": "^6.0.0",
+    "googleapis": "^144.0.0"
   }
 }
