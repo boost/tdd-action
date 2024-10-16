@@ -19,5 +19,5 @@ jobs:
         uses: actions/github-script@v6
         with:
           script: |
-            const script = require('${{ github.action_path }}/src/storeTDDData.js');
+            const script = require('src/storeTDDData.js');
             await script({ github, context });
