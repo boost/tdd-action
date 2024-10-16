@@ -59,7 +59,7 @@ const { google } = require('googleapis');
   });
 
   const authClient = await auth.getClient();
-  const sheetId = process.env.SHEET_ID;
+  const sheetId = process.env.TDD_SHEET_ID;
 
   const request = {
     spreadsheetId: sheetId,
