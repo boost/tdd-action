@@ -19,5 +19,5 @@ jobs:
         uses: actions/github-script@v6
         with:
           script: |
-            const script = require('${{ github.action_path }}/src/addTDDQuestion.js');
+            const script = require('src/addTDDQuestion.js');
             await script({ github, context });
