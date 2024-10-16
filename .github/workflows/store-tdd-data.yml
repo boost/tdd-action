@@ -1,23 +1,23 @@
 name: 'Store TDD Data'
 description: 'Store TDD feedback data in Google Sheets when a pull request is merged'
-runs:
-  using: 'composite'
-  steps:
-    - name: Set up Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: "21"
 
-    - name: Store TDD Data in Google Sheets
-      env:
-        GITHUB_TOKEN: ${{ github.token }}
-        GOOGLE_SHEETS_CREDENTIALS: ${{ secrets.GOOGLE_SHEETS_CREDENTIALS }}
-        TDD_SHEET_ID: ${{ secrets.TDD_SHEET_ID }}
-        GITHUB_REPOSITORY: ${{ github.repository }}
-        GITHUB_PR_NUMBER: ${{ github.event.pull_request.number }}
-        GITHUB_CLOSED_AT: ${{ github.event.pull_request.closed_at }}
-        GITHUB_ACTOR: ${{ github.actor }}
-      run: |
-        npm install googleapis node-fetch@2
-        node ${{ github.action_path }}/src/storeTDDData.js
-      shell: bash
+on:
+  - workflow_call
+
+jobs:
+  store_tdd_data:
+    runs-on: boost-eks-github-runners
+    name: Store TDD feedback data
+
+    steps:
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "21"
+
+      - name: Store TDD Data
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const script = require('${{ github.action_path }}/src/storeTDDData.js');
+            await script({ github, context });
