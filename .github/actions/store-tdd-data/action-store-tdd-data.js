@@ -52,7 +52,7 @@ async function run() {
 
     // Format as dd-mm-YYYY
     const [day, month, year] = closedAtNZT.split('/');
-    const formattedClosedDate = `${day}-${month}-${year}`;
+    const formattedClosedDate = `${day}/${month}/${year}`;
 
     // Store the response and feedback in Google Sheets
     const auth = new google.auth.GoogleAuth({
